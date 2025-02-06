@@ -18,7 +18,7 @@ public interface NotificationRepository extends JpaRepository<Notification, Long
     Notification findNotificationByUuid(UUID uuid);
 
     //Eliminar notificaciones por uuid
-    void deleteNotificationByUuid(UUID uuid);
+    Notification deleteNotificationByUuid(UUID uuid);
 
     //Actualizar notificaciones por uuid
     void updateNotificationByUuid(UUID uuid);
