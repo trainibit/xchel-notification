@@ -28,7 +28,7 @@ CREATE TABLE Notification (
                               uuid UUID UNIQUE NOT NULL, -- UUID único
                               user_uuid UUID NOT NULL ,
                               send_date TIMESTAMP NOT NULL,
-                              template_id INT REFERENCES NotificationTemplate(id) ON DELETE CASCADE,
+                              template_id int8 REFERENCES NotificationTemplate(id) ON DELETE CASCADE,
                               status VARCHAR(50) DEFAULT 'pending', -- Ej: "pending", "sent", "failed"
                               created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                               updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

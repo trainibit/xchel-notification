@@ -8,14 +8,14 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class NotificationRequest {
+public class NotificationTemplateRequest {
     private Long id;
     private UUID uuid;
-    private UUID userUuid;
-    private Timestamp sendDate;
-    private UUID notificationTemplateUuid;
-    private String status;
+    private String content;
+    private UUID notificationTypeUuid;
+    private Long priority;
     private Timestamp createdAt;
     private Timestamp updatedAt;
     private Boolean active;
+
 }

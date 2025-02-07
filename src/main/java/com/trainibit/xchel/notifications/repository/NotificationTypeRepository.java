@@ -1,7 +1,6 @@
 package com.trainibit.xchel.notifications.repository;
 
-
-import com.trainibit.xchel.notifications.entity.Notification;
+import com.trainibit.xchel.notifications.entity.NotificationType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,12 +8,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface NotificationRepository extends JpaRepository<Notification, Long> {
-
+public interface NotificationTypeRepository extends JpaRepository<NotificationType, Long> {
     //Obtener todas las notificaciones
-    List<Notification> findAll();
+    List<NotificationType> findAll();
 
     //Obtener notificaciones por uuid
-    Notification findByUuid(UUID uuid);
+    NotificationType findByUuid(UUID uuid);
 
 }

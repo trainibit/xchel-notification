@@ -1,5 +1,6 @@
 package com.trainibit.xchel.notifications.controller;
 
+import com.trainibit.xchel.notifications.entity.Notification;
 import com.trainibit.xchel.notifications.request.NotificationRequest;
 import com.trainibit.xchel.notifications.response.NotificationResponse;
 import com.trainibit.xchel.notifications.service.NotificationService;
@@ -33,8 +34,8 @@ public class NotificationController {
 
     //Obtener notificaciones por uuid
     @GetMapping("/{uuid}")
-    public ResponseEntity<NotificationResponse> getById(@PathVariable UUID uuid) {
-        NotificationResponse notificationResponse = notificationService.findNotificationByUuid(uuid);
+    public ResponseEntity<Notification> getById(@PathVariable UUID uuid) {
+        Notification notificationResponse = notificationService.findNotificationByUuid(uuid);
         if (notificationResponse != null) {
             return ResponseEntity.ok(notificationResponse);
         } else {
@@ -52,7 +53,7 @@ public class NotificationController {
 
     //Eliminar notificaciones por uuid
     @DeleteMapping("/{uuid}")
-    public ResponseEntity<Void> deleteNotification(@PathVariable UUID uuid){
+    public ResponseEntity<Void> deleteNotification(@PathVariable UUID uuid) {
         notificationService.deleteNotificationByUuid(uuid);
         return ResponseEntity.noContent().build();
     }

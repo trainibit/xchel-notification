@@ -7,20 +7,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.UUID;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "notification_template")
+@ToString
+@Entity(name = "notification_template")
 public class NotificationTemplate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,9 +32,9 @@ public class NotificationTemplate {
     @Column(name = "content", nullable = false, length = Integer.MAX_VALUE)
     private String content;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "notification_type_id", nullable = false)
-    private NotificationType notificationType;
+    private NotificationType notificationTypeUuid;
 
     @ColumnDefault("1")
     @Column(name = "priority")

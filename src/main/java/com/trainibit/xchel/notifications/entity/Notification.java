@@ -7,20 +7,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.sql.Timestamp;
-import java.time.Instant;
 import java.util.UUID;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "notification")
+@Entity(name = "notification")
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +32,9 @@ public class Notification {
     @Column(name = "send_date", nullable = false)
     private Timestamp sendDate;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "template_id", nullable = false)
-    private Notification notificationTemplate;
+    private NotificationTemplate notificationTemplate;
 
     @ColumnDefault("pending")
     @Column(name = "status", length = 50)

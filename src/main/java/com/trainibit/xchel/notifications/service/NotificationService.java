@@ -13,7 +13,7 @@ public interface NotificationService {
     List<NotificationResponse> findAllNotification();
 
     //Obtener notificaciones por uuid
-    NotificationResponse findNotificationByUuid(UUID uuid);
+    Notification findNotificationByUuid(UUID uuid);
 
     //Agregar notificaciones
     NotificationResponse saveNotification(NotificationRequest NotificationRequest);
@@ -22,6 +22,6 @@ public interface NotificationService {
     void deleteNotificationByUuid(UUID uuid);
 
     //Actualizar notificaciones por uuid
-    NotificationResponse updateNotificationByUuid(UUID uuid,NotificationRequest notificationRequest);
+    NotificationResponse updateNotificationByUuid(UUID uuid, NotificationRequest notificationRequest);
 
 }
